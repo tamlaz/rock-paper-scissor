@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock-paper-scissor</title>
+</head>
+<body>
+    <script>
+
+        /// creating variables with values of 0, to later counting the score
+        let playerWin = 0;
+        let computerWin = 0;
+        let draw = 0;
+
+        /// creating function to compare playerSelection and computerSelection
+        function playGround () {
+            switch (playerSelection, computerSelection) {
+                case (playerSelection === 'ROCK' && computerSelection === 'SCISSOR') :
+                    playerWin += 1;
+                    console.log(`You won! ${playerSelection} beats ${computerSelection}`);
+                    break;
+                case (playerSelection === 'SCISSOR' && computerSelection === 'PAPER') :
+                    playerWin += 1;
+                    console.log(`You won! ${playerSelection} beats ${computerSelection}`);
+                    break;
+                case (playerSelection === 'PAPER' && computerSelection === 'ROCK') :
+                    playerWin += 1;
+                    console.log(`You won! ${playerSelection} beats ${computerSelection}`);
+                    break;
+                case (playerSelection === 'PAPER' && computerSelection === 'SCISSOR') :
+                    computerWin += 1;
+                    console.log(`The Computer won! ${computerSelection} beats ${playerSelection}`);
+                    break;
+                case (playerSelection === 'SCISSOR' && computerSelection === 'ROCK') :
+                    computerWin += 1;
+                    console.log(`The Computer won! ${computerSelection} beats ${playerSelection}`);
+                    break;
+                case (playerSelection === 'ROCK' && computerSelection === 'PAPER') :
+                    computerWin += 1;
+                    console.log(`The Computer won! ${computerSelection} beats ${playerSelection}`);
+                    break;
+                default:
+                    draw += 1;
+                    console.log(`Draw! Both of you chose the same: ${playerSelection} equals ${computerSelection}.`);
+            }
+
+        }
+
+    </script>
+    
+</body>
+</html>
