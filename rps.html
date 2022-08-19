@@ -16,6 +16,7 @@
 
         /// creating function to compare playerSelection and computerSelection
         function playGround () {
+            /// switch statements for every case, both of the computer and player can select rock, paper, scissor
             switch (playerSelection, computerSelection) {
                 case (playerSelection === 'ROCK' && computerSelection === 'SCISSOR') :
                     playerWin += 1;
@@ -45,7 +46,6 @@
                     draw += 1;
                     console.log(`Draw! Both of you chose the same: ${playerSelection} equals ${computerSelection}.`);
             }
-
         }
 
     </script>
