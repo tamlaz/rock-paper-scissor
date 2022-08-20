@@ -48,7 +48,16 @@
                 console.log(computerSelection);
                 playGround(playerSelection, computerSelection);
             }
-            
+            console.log(`You have: ${playerWin} point(s).`);
+            console.log(`The Computer has: ${computerWin} point(s).`)
+            console.log(`Number of draws: ${draw}.`)
+            if (playerWin < computerWin) {
+                console.log('The Computer won the game!');
+            } else if (playerWin > computerWin) {
+                console.log('Congratulation, you won!');
+            } else {
+                console.log('It is a tie!');
+            }
         }
         game();
 
