@@ -43,3 +43,15 @@ for (i of buttons) {
     })
 }
 
+// let currentScore = 
+
+console.log(`You have: ${playerWin} point(s).`);
+console.log(`The Computer has: ${computerWin} point(s).`);
+console.log(`Number of draws: ${draw}.`);
+/// Used if...else statements to determine who won the entire game
+if (computerWin == 5) {
+    console.log('The Computer won the game!');
+} else if (playerWin == 5) {
+    console.log('Congratulation, you won!');
+}
+
