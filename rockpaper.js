@@ -32,7 +32,16 @@ function playGround(playerSelection, computerSelection) {
         computerWin += 1;
         console.log(`The Computer won! ${computerSelection} beats ${playerSelection}`);
     }
-}
+    console.log(`You have: ${playerWin} point(s).`);
+    console.log(`The Computer has: ${computerWin} point(s).`);
+    console.log(`Number of draws: ${draw}.`);
+    /// Used if...else statements to determine who won the entire game
+    // if (computerWin == 5) {
+    // console.log('The Computer won the game!');
+    // } else if (playerWin == 5) {
+    // console.log('Congratulation, you won!');
+    // }
+    }
 
 let buttons = document.querySelectorAll('.buttons');
 
@@ -43,15 +52,7 @@ for (i of buttons) {
     })
 }
 
-// let currentScore = 
+let currentScore = 
 
-console.log(`You have: ${playerWin} point(s).`);
-console.log(`The Computer has: ${computerWin} point(s).`);
-console.log(`Number of draws: ${draw}.`);
-/// Used if...else statements to determine who won the entire game
-if (computerWin == 5) {
-    console.log('The Computer won the game!');
-} else if (playerWin == 5) {
-    console.log('Congratulation, you won!');
-}
+
 
