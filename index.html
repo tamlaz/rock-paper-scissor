@@ -5,80 +5,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock-paper-scissor</title>
+    <script src="rockpaper.js" defer></script>
 </head>
 <body>
 
-    <div id="buttons">
-    <button id="rock">ROCK</button>
-    <button id="paper">PAPER</button>
-    <button id="scissor">SCISSOR</button>
+    <div class="buttons">
+        <button class="button" value="rock">ROCK</button>
+        <button class="button" value="paper">PAPER</button>
+        <button class="button" value="scissor">SCISSOR</button>
     </div>
-    <script>
-
-        // /// creating variables with values of 0, to later counting the score
-        // let playerWin = 0;
-        // let computerWin = 0;
-        // let draw = 0;
-
-        // /// creating function to compare playerSelection and computerSelection
-        // function playGround (playerSelection, computerSelection) {
-        //     /// If...else statements for every case, both of the computer and player can select rock, paper, scissor
-        //     /// If it is a draw, none of them got a points, it goes to the draw variable 
-        //     if (playerSelection == computerSelection) {
-        //         draw += 1;
-        //         console.log(`Draw! Both of you chose the same: ${playerSelection} equals ${computerSelection}.`);
-        //     /// If the player wins, variable playerWin is increased with 1
-        //     } else if (playerSelection == 'ROCK' && computerSelection == 'SCISSOR') {
-        //             playerWin += 1;
-        //             console.log(`You won! ${playerSelection} beats ${computerSelection}`);
-        //     } else if (playerSelection == 'SCISSOR' && computerSelection == 'PAPER') {
-        //             playerWin += 1;
-        //             console.log(`You won! ${playerSelection} beats ${computerSelection}`);
-        //     } else if (playerSelection == 'PAPER' && computerSelection == 'ROCK') {
-        //             playerWin += 1;
-        //             console.log(`You won! ${playerSelection} beats ${computerSelection}`);
-        //     /// If the computer wins, the variable computerWin is increased with 1
-        //     } else {
-        //         computerWin += 1;
-        //         console.log(`The Computer won! ${computerSelection} beats ${playerSelection}`);
-        //     }
-        // }
-        // /// function to play 5 round in a game
-        // function game () {
-        //     /// To play 5 rounds in a row to determine who the winner is, I used a for.. loop
-        //     // for (let i = 0; i < 5; i++) {
-        //         /// Used a prompt message to get input from player, toUpperCase() to make sure it matches with computerSelection
-        //         let playerSelection = prompt('ROCK, PAPER or SCISSOR? Choose you fighter: ', '').toUpperCase();
-        //         console.log(playerSelection);
-        //         /// Created an array to the computer to choose from randomly
-        //         const gameTools = ['ROCK', 'PAPER', 'SCISSOR'];
-        //         /// Created this function to choose randomly from the array above
-        //         function computerChoice() {
-        //             return gameTools[Math.floor(Math.random() * gameTools.length)];
-        //         }
-        //         /// This variable is storing the array item as a string, chosen by the above function
-        //         let computerSelection = computerChoice();
-        //         console.log(computerSelection);
-        //         /// Calling this function inside if game(), to compare the inputs 5 times
-        //         playGround(playerSelection, computerSelection);
-        //     }
-        //     /// Used the console.log() method to see the scores in the console
-        //     console.log(`You have: ${playerWin} point(s).`);
-        //     console.log(`The Computer has: ${computerWin} point(s).`)
-        //     console.log(`Number of draws: ${draw}.`)
-        //     /// Used if...else statements to determine who won the entire game
-        //     if (playerWin < computerWin) {
-        //         console.log('The Computer won the game!');
-        //     } else if (playerWin > computerWin) {
-        //         console.log('Congratulation, you won!');
-        //     } else {
-        //         console.log('It is a tie!');
-        //     }
-        // }
-        // game();
-
-
-    </script>
+    
     
 </body>
 </html>
