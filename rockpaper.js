@@ -17,6 +17,7 @@ gameResults.appendChild(scoreComputer);
 
 const roundTie = document.createElement('div');
 roundTie.classList.add('roundTie');
+gameResults.appendChild(roundTie);
 
 /// creating function to compare playerSelection and computerSelection
 function playGround(playerSelection, computerSelection) {
@@ -25,16 +26,8 @@ function playGround(playerSelection, computerSelection) {
     if (playerSelection == computerSelection) {
         draw += 1;
         roundTie.textContent = (`Tie! ${playerSelection} equals ${computerSelection}. Number of draws: ${draw}`);
-        gameResults.appendChild(roundTie);
     /// If the player wins, variable playerWin is increased with 1
-    } else if (playerSelection == 'rock' && computerSelection == 'scissor') {
-        playerWin += 1;
-        scorePlayer.textContent = "Your score : " + playerWin;
-    } else if (playerSelection == 'scissor' && computerSelection == 'paper') {
-        playerWin += 1;
-        scorePlayer.textContent = "Your score : " + playerWin;
-        gameResults.appendChild(scorePlayer);
-    } else if (playerSelection == 'paper' && computerSelection == 'rock') {
+    } else if (playerSelection == 'rock' && computerSelection == 'scissor' || playerSelection == 'scissor' && computerSelection == 'paper' || playerSelection == 'paper' && computerSelection == 'rock') {
         playerWin += 1;
         scorePlayer.textContent = "Your score : " + playerWin;
         gameResults.appendChild(scorePlayer);
