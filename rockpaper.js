@@ -1,7 +1,6 @@
 /// creating variables with values of 0, to later counting the score
 let playerWin = 0;
 let computerWin = 0;
-let draw = 0;
 
 const gameTools = ['rock', 'paper', 'scissor'];
 function computerChoice() {
@@ -10,42 +9,39 @@ function computerChoice() {
 
 let gameResults = document.querySelector('.results');
 let scorePlayer = document.querySelector('.resultplayer');
-gameResults.appendChild(scorePlayer);
+scorePlayer.textContent = "Player score: ";
 
 let scoreComputer = document.querySelector('.resultcomputer');
-gameResults.appendChild(scoreComputer);
+scoreComputer.textContent = "Computer score: ";
 
-const roundTie = document.createElement('div');
-roundTie.classList.add('roundTie');
-gameResults.appendChild(roundTie);
 
-/// creating function to compare playerSelection and computerSelection
+const roundScore = document.createElement('div');
+roundScore.classList.add('roundScore');
+
+
+let gameWinner = document.createElement('div');
+gameWinner.classList.add('gameWinner');
+
+// creating function to compare playerSelection and computerSelection
 function playGround(playerSelection, computerSelection) {
+    gameResults.appendChild(roundScore);
     /// If...else statements for every case, both of the computer and player can select rock, paper, scissor
-    /// If it is a draw, none of them got a points, it goes to the draw variable 
+    // If it is a draw, none of them got a points, it goes to the draw variable 
     if (playerSelection == computerSelection) {
-        draw += 1;
-        roundTie.textContent = (`Tie! ${playerSelection} equals ${computerSelection}. Number of draws: ${draw}`);
-    /// If the player wins, variable playerWin is increased with 1
+        roundScore.textContent = `It\'s a tie! ${playerSelection} equals ${computerSelection}.`
+    // If the player wins, variable playerWin is increased with 1
     } else if (playerSelection == 'rock' && computerSelection == 'scissor' || playerSelection == 'scissor' && computerSelection == 'paper' || playerSelection == 'paper' && computerSelection == 'rock') {
         playerWin += 1;
-        scorePlayer.textContent = "Your score : " + playerWin;
-        gameResults.appendChild(scorePlayer);
-    /// If the computer wins, the variable computerWin is increased with 1
+        scorePlayer.textContent = "Player score: " + playerWin;
+        roundScore.textContent = `You win! ${playerSelection} beats ${computerSelection}`;
+    // If the computer wins, the variable computerWin is increased with 1
     } else {
         computerWin += 1;
         scoreComputer.textContent = "Computer score: " + computerWin;
-        
+        roundScore.textContent = `Computer win! ${computerSelection} beats ${playerSelection}`;
     }
-    // console.log(`You have: ${playerWin} point(s).`);
-    // console.log(`The Computer has: ${computerWin} point(s).`);
-    // console.log(`Number of draws: ${draw}.`);
-    /// Used if...else statements to determine who won the entire game
-    // if (computerWin == 5) {
-    // console.log('The Computer won the game!');
-    // } else if (playerWin == 5) {
-    // console.log('Congratulation, you won!');
-    // }
+    // function that checks the winner
+    checkWin(playerWin, computerWin);
 }
 
 let buttons = document.querySelectorAll('.buttons');
@@ -54,10 +50,41 @@ for (i of buttons) {
     i.addEventListener('click', function(e) {
         let playerSelection = e.target.value;
         let computerSelection = computerChoice();
-        console.log(computerSelection);
+        // console.log(computerSelection);
         playGround(playerSelection, computerSelection);
     })
 };
+
+function checkWin(playerWin, computerWin) {
+    if (playerWin == 5) {
+        gameWinner.textContent = "Awesome! You won the game!";
+        gameResults.appendChild(gameWinner);
+        resetScore(playerWin, computerWin);
+        gameResults.appendChild(resetBtn);
+    } else if (computerWin == 5) {
+        gameWinner.textContent = "You lost, the computer won the game";
+        gameResults.appendChild(gameWinner);
+        resetScore(playerWin, computerWin);
+        gameResults.appendChild(resetBtn);
+    }
+}
+
+function resetScore() {
+    playerWin = 0;
+    computerWin = 0;
+}
+
+function resetGame() {
+    gameResults.removeChild(roundScore);
+    gameResults.removeChild(resetBtn);
+    gameResults.removeChild(gameWinner);
+}
+
+let resetBtn = document.createElement('button');
+resetBtn.textContent = "RESTART GAME";
+resetBtn.addEventListener('click', resetGame);
+
+
 
 
 
