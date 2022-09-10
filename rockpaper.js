@@ -1,4 +1,4 @@
-/// creating variables with values of 0, to later counting the score
+// creating variables with values of 0, to later counting the score
 let playerWin = 0;
 let computerWin = 0;
 
@@ -8,22 +8,21 @@ function computerChoice() {
 }
 
 let gameResults = document.querySelector('.results');
+
 let scorePlayer = document.querySelector('.resultplayer');
-scorePlayer.textContent = "Player score: ";
+scorePlayer.textContent = "Player score: " + playerWin;
 
 let scoreComputer = document.querySelector('.resultcomputer');
-scoreComputer.textContent = "Computer score: ";
+scoreComputer.textContent = "Computer score: " + computerWin;
 
-
-const roundScore = document.createElement('div');
+let roundScore = document.createElement('div');
 roundScore.classList.add('roundScore');
-
 
 let gameWinner = document.createElement('div');
 gameWinner.classList.add('gameWinner');
 
 // creating function to compare playerSelection and computerSelection
-function playGround(playerSelection, computerSelection) {
+const playGround = (playerSelection, computerSelection) => {
     gameResults.appendChild(roundScore);
     /// If...else statements for every case, both of the computer and player can select rock, paper, scissor
     // If it is a draw, none of them got a points, it goes to the draw variable 
@@ -50,31 +49,30 @@ for (i of buttons) {
     i.addEventListener('click', function(e) {
         let playerSelection = e.target.value;
         let computerSelection = computerChoice();
-        // console.log(computerSelection);
         playGround(playerSelection, computerSelection);
     })
 };
 
-function checkWin(playerWin, computerWin) {
+const checkWin = (playerWin, computerWin) => {
     if (playerWin == 5) {
         gameWinner.textContent = "Awesome! You won the game!";
         gameResults.appendChild(gameWinner);
-        resetScore(playerWin, computerWin);
         gameResults.appendChild(resetBtn);
     } else if (computerWin == 5) {
         gameWinner.textContent = "You lost, the computer won the game";
         gameResults.appendChild(gameWinner);
-        resetScore(playerWin, computerWin);
         gameResults.appendChild(resetBtn);
     }
 }
 
-function resetScore() {
-    playerWin = 0;
-    computerWin = 0;
-}
+const resetScore = () => {
+     playerWin = 0;
+     computerWin = 0;
+     scorePlayer.textContent = "Player score: " + playerWin;
+     scoreComputer.textContent = "Computer score: " + computerWin;
+ }
 
-function resetGame() {
+const resetGame = () => {
     gameResults.removeChild(roundScore);
     gameResults.removeChild(resetBtn);
     gameResults.removeChild(gameWinner);
@@ -83,6 +81,7 @@ function resetGame() {
 let resetBtn = document.createElement('button');
 resetBtn.textContent = "RESTART GAME";
 resetBtn.addEventListener('click', resetGame);
+resetBtn.addEventListener('click', resetScore);
 
 
 
