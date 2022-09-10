@@ -1,1 +1,3 @@
-The Rock Paper Scissor project
+
+Project rps
+
